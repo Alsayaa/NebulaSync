@@ -1,1 +1,0 @@
-Slogant : Synchronisez votre présence web avec les étoiles
