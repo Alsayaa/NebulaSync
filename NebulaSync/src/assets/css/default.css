@@ -1,0 +1,743 @@
+:root {
+    --primary-color: #1C1C40;
+    --secondary-color: #4B0082;
+    --tertiary-color: #0A0A0A;
+    --text-color: #FFFFFF;
+    --dark: #222;
+    --light: #f8f8fa;
+    --purple: #b98aff;
+    --purple-light: #812dff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: radial-gradient(ellipse at center, #0a0a1a 0%, #000005 100%);
+    /* CORRECTIONS POUR LE OVERFLOW */
+    min-height: 100vh; /* Utiliser min-height au lieu de height */
+    overflow-x: hidden; /* Garder seulement sur body */
+    padding-top: 80px;
+}
+
+/* Assurer que html n'a pas de overflow problématique */
+html {
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--dark);
+    color: var(--purple);
+}
+
+.navbar {
+    font-family: "Goldman", sans-serif;
+    border-bottom: 4px solid var(--light);
+    padding: 1.2rem;
+    background: var(--primary-color) !important;
+    position: fixed; /* Ajouter position fixed pour éviter les conflits */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.navbar .navbar-nav {
+    gap: 1.2rem;
+}
+
+.navbar-brand {
+    border: 2px solid var(--light);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    animation: pulse 2s infinite alternate;
+    transition: border-color 0.2s ease;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    border: 2px solid var(--light);
+}
+
+.navbar-brand:hover {
+    border-color: var(--purple);
+}
+
+.navbar .nav-link {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    color: var(--light);
+    font-size: 1rem;
+    font-weight: 700;
+    transition: width 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.2);
+}
+
+.navbar .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--light);
+    transition: width 0.5s ease-in;
+}
+
+.navbar .nav-link:hover::before,
+.navbar .nav-link:active::before,
+.navbar .nav-link:focus::before {
+    width: 100%;
+}
+
+.navbar .nav-link:active {
+    color: var(--purple);
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 var(--light);
+        transform: scale(0.9)
+    }
+    to {
+        box-shadow: 0 0 0 5px var(--light);
+        transform: scale(1)
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-toggler {
+        border: 2px solid var(--light);
+        border-radius: 2rem;
+        background: var(--dark);
+        font-size: 1.5rem;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem var(--purple);
+    }
+}
+
+/* ! === CSS POUR LA SECTION HERO === */
+
+.hero-section {
+    min-height: 70vh;
+    margin-top: 4.5rem;
+    margin-right: 2rem;
+    scroll-margin-top: 200px;
+
+}
+
+.hero-title {
+    position: relative;
+    font-size: 5rem;
+    font-family: 'Goldman', sans-serif;
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+/* CORRECTION DES BOUTONS HERO */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    position: relative;
+    border-radius: 2rem;
+    background: var(--primary-color) !important;
+    border: 2px solid var(--light) !important;
+    padding: 0.7rem 1.5rem;
+    min-width: 200px;
+    flex: 0 1 auto;
+    font-weight: 600;
+    color: white !important;
+    overflow: hidden;
+    transition: transform 0.4s ease, background 0.5s ease, box-shadow 0.5s ease;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.hero-btn:hover {
+    transform: scale(1.08);
+    background: var(--secondary-color) !important;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--light);
+    }
+    100% {
+        box-shadow: 0 0 13px var(--light);
+    }
+}
+
+/* ! === CSS POUR LA SECTION HERO === */
+
+/* ! === CSS POUR LA SECTION ABOUT === */
+
+.about-section {
+    min-height: 100vh;
+    scroll-margin-top: 140px;
+}
+
+.container-about {
+    position: relative;
+    margin-top: 5rem;
+    padding: 2rem;
+    background: var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--light);
+    border-bottom: 2px solid var(--light);
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.title-about {
+    font-family: 'Goldman', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--light);
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    animation: textShadowPulse 2.5s infinite alternate;
+}
+
+@keyframes textShadowPulse {
+    0% {
+        text-shadow: 0 0 1px var(--light);
+    }
+    100% {
+        text-shadow: 0 0 10px var(--light);
+    }
+}
+
+/* ! === CSS POUR LA SECTION ABOUT === */
+
+/* ! === CSS POUR LA SECTION MÉTHODOLOGIE === */
+
+#methodology {
+    background: radial-gradient(ellipse at center, #0a0a1a 0%, #000005 100%);
+    min-height: 100vh;
+    scroll-margin-top: 80px;
+}
+
+#methodology h2 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--light);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    animation: textShadowPulse 2.5s infinite alternate;
+}
+
+#methodology .card {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    min-height: 280px;
+    color: var(--light);
+}
+
+#methodology .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 20px var(--light);
+    border-color: var(--purple);
+}
+
+#methodology .card i {
+    color: var(--light);
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+#methodology .card:hover i {
+    transform: scale(1.2);
+    color: var(--purple);
+}
+
+#methodology .card h3 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+    font-weight: 600;
+}
+
+#methodology .card p {
+    color: var(--light);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ! === CSS POUR LA SECTION SERVICES === */
+
+#service {
+    background: radial-gradient(ellipse at center, #0a0a1a 0%, #000005 100%);
+    padding: 5rem 0;
+    min-height: 100vh;
+    scroll-margin-top: 80px;
+
+}
+
+#service h2 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--light);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    animation: textShadowPulse 2.5s infinite alternate;
+    margin-bottom: 3rem;
+}
+
+#service .card {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    min-height: 300px;
+    color: var(--light);
+}
+
+#service .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 25px var(--light);
+    border-color: var(--purple);
+}
+
+#service .card i {
+    color: var(--light);
+    margin-bottom: 2rem;
+    transition: all 0.4s ease;
+}
+
+#service .card:hover i {
+    transform: scale(1.3);
+    color: var(--purple);
+}
+
+#service .card h3 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+    font-weight: 600;
+}
+
+#service .card p {
+    color: var(--light);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.btn-modal {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 25px;
+    color: var(--light);
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    transition: all 0.4s ease;
+}
+
+.btn-modal:hover {
+    transform: translateY(-5px);
+    background: var(--secondary-color);
+    border-color: var(--light);
+}
+
+/* ! === CSS POUR LA SECTION CONTACT === */
+
+#contact {
+    background: radial-gradient(ellipse at center, #0a0a1a 0%, #000005 100%);
+    min-height: 100vh;
+    scroll-margin-top: 80px;
+}
+
+.container-contact {
+    position: relative;
+    margin-top: 5rem;
+    padding: 2rem;
+    background: transparent;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--light);
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+#contact h2 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--light);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    animation: textShadowPulse 2.5s infinite alternate;
+}
+
+#contact .card {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    transition: all 0.4s ease;
+    position: relative;
+    color: var(--light);
+    height: 100%;
+}
+
+#contact .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px var(--light);
+    border-color: var(--purple);
+}
+
+#contact .card i {
+    color: var(--light);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+#contact .card:hover i {
+    transform: scale(1.15);
+    color: var(--purple);
+}
+
+#contact .card h3 {
+    font-family: 'Goldman', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+    font-weight: 600;
+}
+
+#contact .card p,
+#contact .card a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact .card a:hover {
+    color: var(--purple);
+}
+
+.discord-link {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 25px;
+    color: var(--light);
+    padding: 0.5rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease !important;
+}
+
+.discord-link:hover {
+    background: var(--secondary-color);
+    border-color: var(--light);
+    color: var(--light) !important;
+    transform: translateY(-5px);
+}
+
+.mail-a {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 25px;
+    color: var(--light);
+    font-weight: 600;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease !important;
+}
+
+.mail-a:hover {
+    background: var(--secondary-color);
+    border-color: var(--light);
+    color: var(--light) !important;
+    transform: translateY(-5px);
+}
+
+.locate-p {
+    color: var(--light);
+    font-size: 1rem;
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 25px;
+    padding: 0.5rem;
+    font-weight: 600;
+    cursor: default;
+    margin-top: 1rem;
+    transition: all 0.3s ease !important;
+}
+
+.locate-p:hover {
+    border-color: var(--light);
+    color: var(--light);
+    transform: translateY(-5px);
+}
+
+/* FORMULAIRE DE CONTACT */
+.contact-form {
+    position: relative;
+}
+
+.contact-form .form-control {
+    background: var(--dark);
+    border: 2px solid var(--light);
+    border-radius: 15px;
+    color: var(--light);
+    padding: 1rem 1.5rem;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    background: var(--dark);
+    border-color: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
+    color: var(--light);
+    font-style: italic;
+}
+
+.contact-form .form-control::placeholder {
+    color: rgba(248, 248, 250, 0.6);
+}
+
+.neon-btn {
+    background: var(--primary-color);
+    border: 2px solid var(--light);
+    border-radius: 25px;
+    color: var(--light);
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Goldman', sans-serif;
+    transition: all 0.4s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: glowPulse 2s infinite alternate;
+}
+
+.neon-btn:hover {
+    transform: translateY(-3px);
+    background: var(--secondary-color);
+    border-color: var(--purple);
+    color: var(--light);
+}
+
+/* ! === CSS POUR LE FOOTER === */
+
+.footer-container {
+    position: relative;
+    background: var(--primary-color);
+    padding: 2rem;
+    color: var(--light);
+    text-align: center;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    border: 2px solid var(--light);
+    transition: transform 0.3s ease;
+}
+
+.footer-container:hover {
+    transform: translateY(-15px);
+}
+
+.social {
+    transition: all 0.3s ease !important;
+    border: 2px solid var(--light);
+    border-radius: 2rem;
+    padding: 1rem;
+    color: var(--light);
+}
+
+.social:hover {
+    transform: scale(1.1);
+    color: var(--purple);
+}
+
+
+::placeholder {
+    font-style: italic;
+}
+
+/* ! === CSS POUR LE FOOTER === */
+
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 768px) {
+    .hero-section {
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .btn-container {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .hero-btn {
+        width: 100%;
+        min-width: auto;
+        max-width: 300px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-btn {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+/* === DROPDOWN RESPONSIVE === */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: var(--primary-color);
+        padding: 1.5rem;
+        animation: dropdownFadeIn 0.5s ease forwards;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        transform: scale(1.1);
+        color: var(--purple);
+    }
+
+    .navbar-brand {
+        animation: none;
+    }
+}
+
+/* Animation d’apparition du menu dropdown */
+@keyframes dropdownFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.btn-up {
+    opacity: 0;
+    position: fixed;
+    border: 2px solid var(--light);
+    width: 50px;
+    background: transparent;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-up:hover {
+    border: none;
+    background-color: #6a1bbd;
+    transform: scale(1.1);
+}
+
+.custom-modal {
+    background: radial-gradient(ellipse at center, #0a0f2c 0%, #050716 100%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.3), 0 0 60px rgba(149, 0, 255, 0.2);
+    font-family: 'Goldman', sans-serif;
+    transition: all 0.3s ease;
+}
+.custom-modal .modal-header {
+    border-bottom: none;
+}
+.custom-modal .modal-body {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+
+/*   Recréer les particules */
+/* Data translate js et html */
+/* Toast onchange de la langue */
+/* La barre de progression CSS*/
