@@ -968,8 +968,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
 
         
-    // eng_btn.style.opacity = '1';
-    // fr_btn.style.opacity = '1';
+
     
     eng_btn.style.display = 'flex';
     fr_btn.style.display = 'flex';
@@ -981,9 +980,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fr_btn.style.display = 'none';
 
 
-
-    // eng_btn.style.opacity = '0';
-    // fr_btn.style.opacity = '0';
 });
 
 
